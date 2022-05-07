@@ -6,20 +6,15 @@
   font-family: 'Poppins', sans-serif;
 } 
 
-
-img{
-  width: 85px; 
-  float: left; 
-  margin-right: 10px; 
-}
 footer{
-  background: rgb(220, 215, 215);
+  background: rgb(191, 64, 64);
 }
 
 .logoTivon{
     width: 150px; 
     float: right; 
     margin-right: 10px; 
+    background: #000;
 }
 
 
@@ -35,7 +30,7 @@ nav{
   display: flex;
   height: 80px;
   width: 100%;
-  background: #1b1b1b;
+  background: #000000;
   align-items: center;
   justify-content: space-between;
   padding: 0 50px 0 100px;
