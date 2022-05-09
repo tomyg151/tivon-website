@@ -1,7 +1,9 @@
 <?php
     
-    if(isset($_REQUEST)['login'])){
-        $username = $_REQUEST['username'];
-        $password = $_REQUEST['password'];
+    if(isset($_POST['login'])){
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        
     }
 ?>

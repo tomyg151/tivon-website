@@ -1,3 +1,17 @@
+<?php
+
+  session_start();
+
+  include "db.php";
+  include "retrive.php";
+  include "function.php";
+  include "logic.php";
+
+  echo $_SESSION['username'];
+
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -22,7 +36,16 @@
           <img src="images/shopping-cart.png" class="img-fluid" alt="shop-icon">
         </div>
         <div class="col-1 py-2 text-center">
-          <a class="btn btn-success" data-bs-toggle="modal" href="#ModalToggle" role="button">Login</a>
+          <?php if(empty($_SESSION['username'])){?>
+              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalToggle">
+              Login
+              </button>
+          <?php }?>
+          <?php if (!empty($_SESSION['username'])){?>
+              <form method="POST">
+                <button class="btn btn-primary" value="logout" name="logout">Log out</button>
+              </form>
+          <?php } ?>
         </div>
         <div class="col-6 py-2 text-center">
           <div class="display-6 text-center text-primary fw-bolder"> כדורמים קרית טבעון</div>
@@ -47,12 +70,13 @@
             <h2 class="my-3 text-center text-warning">Sign in</h2>
             <input type="text" name="username" placeholder="Username" class="form-control">
             <input type="password" name="password" placeholder="Password" class="form-control mt-3">
-            <button type="sumbit" name="login" class="btn btn-outline-light mt-3">Login</button>
+            <button type="submit" name="login" value = "login" class="btn btn-outline-light mt-3">Login</button>
           </form>
         </div>
       </div>
     </div>
   </div>
+  
   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
 
