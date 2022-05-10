@@ -10,16 +10,13 @@ footer{
   background: rgb(191, 64, 64);
 }
 
-.logoTivon{
-    width: 150px; 
-    float: right; 
-    margin-right: 10px; 
-    background: #000;
-}
+/* .logoTivon{
+    float: right;  
+} */
 
 
 .siteName{
-  color: rgb(10, 10, 10);
+  color: rgb(25, 33, 133);
   font-size: 50px;
   font-weight: 600;
   text-align:center
