@@ -5,21 +5,35 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 } 
+
+footer{
+  background: rgb(191, 64, 64);
+}
+
+/* .logoTivon{
+    float: right;  
+} */
+
+
+.siteName{
+  color: rgb(25, 33, 133);
+  font-size: 50px;
+  font-weight: 600;
+  text-align:center
+
+}
+
 nav{
   display: flex;
   height: 80px;
   width: 100%;
-  background: #1b1b1b;
+  background: #000000;
   align-items: center;
   justify-content: space-between;
   padding: 0 50px 0 100px;
   flex-wrap: wrap;
 }
-nav .logo{
-  color: #fff;
-  font-size: 35px;
-  font-weight: 600;
-}
+
 nav ul{
   display: flex;
   flex-wrap: wrap;
