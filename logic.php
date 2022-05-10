@@ -17,7 +17,7 @@
         header("Refresh:0");
         exit();
     }
-    
+
 ?>
     <div class="modal fade" id="ModalToggle" aria-hidden="true" aria-labelledby="ModalToggleLabel" tabindex="-1">
      <div class="modal-dialog modal-dialog-centered">
@@ -37,3 +37,6 @@
       </div>
      </div>
     </div>
+=======
+?>
+
