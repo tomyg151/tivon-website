@@ -6,25 +6,17 @@
   font-family: 'Poppins', sans-serif;
 } 
 
-
-img{
-  width: 85px; 
-  float: left; 
-  margin-right: 10px; 
-}
 footer{
-  background: rgb(220, 215, 215);
+  background: rgb(191, 64, 64);
 }
 
-.logoTivon{
-    width: 150px; 
-    float: right; 
-    margin-right: 10px; 
-}
+/* .logoTivon{
+    float: right;  
+} */
 
 
 .siteName{
-  color: rgb(10, 10, 10);
+  color: rgb(25, 33, 133);
   font-size: 50px;
   font-weight: 600;
   text-align:center
@@ -35,7 +27,7 @@ nav{
   display: flex;
   height: 80px;
   width: 100%;
-  background: #1b1b1b;
+  background: #000000;
   align-items: center;
   justify-content: space-between;
   padding: 0 50px 0 100px;
@@ -58,7 +50,7 @@ nav ul li a{
   padding: 8px 15px;
   border-radius: 5px;
   letter-spacing: 1px;
-  transition: all 0.3s ease;
+  transition: all 0.1s ease;
 }
 nav ul li a.active,
 nav ul li a:hover{
