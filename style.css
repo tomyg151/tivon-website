@@ -6,13 +6,13 @@
   font-family: 'Poppins', sans-serif;
 } 
 
-footer{
-  background: rgb(191, 64, 64);
-}
 
-/* .logoTivon{
-    float: right;  
-} */
+
+
+textarea{
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
 .siteName{
@@ -127,3 +127,9 @@ input[type="checkbox"]{
   font-size: 40px;
   font-weight: 700;
 }
+
+
+
+
+
+
