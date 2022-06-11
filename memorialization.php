@@ -28,16 +28,124 @@
    </head>
    <div class="container-lg "></div>
   
-   <body style="background-image: url('images/background.png') ;">
+   <body style="background-image: url('images_memoralization/candle.jpg') ;">
+
+         <div class="col mx-auto py-2">
+            <h4 class="display-3 text-center fw-bolder" style="color:rgb(255, 255, 255);"> <img src="images_memoralization/יזכור.png" width="2" class="col-1 mx-auto" alt="s1"> יזכור</h4>
+         </div>
 
 
-      <h1>memorialization page</h1>
-      <?php echo $_SESSION['username']; ?>
+      <div class = "container-xlg py-3" style="background-color:rgba(1,1,1,0.5);"> 
+         <div class="row my-5 align-items-center justify-content-center">
+
+               <div class="col-4">
+                  <div class="card my-3 border-dark border-2" style="background-color:rgb(182,25,25);">
+                     <div class="card-body py-4">
+                        <h4 class="card-title text-center fw-bolder" dir="rtl">דני הרן</h4>
+                        <img src="images_memoralization/דני הרן.jpg" width="50" height="450" class="card-img-top" alt="s1">
+                        <p class="lead card-subtitle fw-bolder fs-6" dir="rtl">  
+                        <br>
+                           דני הרן<br>
+                           בן נינה ודוד<br>
+                            נהרג בפעולת איבה בכ"ה בניסן תשל"ט, 22/4/1979<br>
+                           מקום קבורה: קרית טבעון<br>
+                           בן 31 במותו<br></p>
+                        
+                     </div>
+                  </div>
+               </div>
+
+               <div class="col-4">
+                  <div class="card my-3 border-dark border-2" style="background-color:rgb(182,25,25);">
+                     <div class="card-body py-4">
+                     <h4 class="card-title text-center fw-bolder" dir="rtl">בר רהב</h4>
+                        <img src="images_memoralization/בר רהב.jpg" class="card-img-top" alt="s1">
+                        <p class="lead card-subtitle fw-bolder fs-6" dir="rtl">   
+                        <br>בר רהב<br>
+                           בן נעמה ואפי<br>
+                           נפל ביום כ"א בתמוז תשע"ד (19.07.2014)<br>
+                           בן 21 בנופלו<br>
+                           מקום מנוחתו בית העלמין קרית טבעון (חלקה צבאית)</p>
+                        
+                     </div>
+                  </div>
+               </div>
+
+               <div class="col-4">
+                  <div class="card my-3 border-dark border-2" style="background-color:rgb(182,25,25);">
+                     <div class="card-body py-4">
+                     <h4 class="card-title text-center fw-bolder" dir="rtl">ניר ניקסון</h4>
+                        <img src="images_memoralization/ניר ניקסון.jpg" class="card-img-top" alt="s1">
+                        <p class="lead card-subtitle fw-bolder fs-6" dir="rtl">   
+                        <br>ניר ניקסון <br>
+                           בן יפית ואילן <br>
+                           נפל ביום ז' בשבט תשס"ג (10.01.2003) <br>
+                           בן ½21 בנופלו <br>
+                           מקום מנוחתו בית העלמין קרית טבעון (חלקה צבאית)</p>
+                        
+                     </div>
+                  </div>
+               </div>
+
+
+               <div class="col-4">
+                  <div class="card my-3 border-dark border-2" style="background-color:rgb(182,25,25);">
+                     <div class="card-body py-4">
+                     <h4 class="card-title text-center fw-bolder" dir="rtl">יריב עמית</h4>
+                        <img src="images_memoralization/יריב עמית.jpg" class="card-img-top" alt="s1">
+                        <p class="lead card-subtitle fw-bolder fs-6" dir="rtl">  
+                        <br>
+                        יריב עמית<br>
+                        בן מרים ואריה<br>
+                        נפל ביום י"ד בתשרי תשנ"ד (29.09.1993)<br>
+                        בן 21 בנופלו<br>
+                        מקום מנוחתו בית העלמין קרית טבעון (חלקה צבאית)</p>
+                        
+                     </div>
+                  </div>
+               </div>
+
+               <div class="col-4">
+                  <div class="card my-3 border-dark border-2" style="background-color:rgb(182,25,25);">
+                     <div class="card-body py-4">
+                     <h4 class="card-title text-center fw-bolder" dir="rtl">מאיר שנלר</h4>
+                        <img src="images_memoralization/מאיר שנלר.jpg" class="card-img-top" alt="s1">
+                        <p class="lead card-subtitle fw-bolder fs-6" dir="rtl">  
+                        <br>מאיר שנלר<br>
+                           בן שושנה ויוסף<br>
+                           נפל ביום י"ז בתמוז תשל"ב (28.06.1972)<br>
+                           בן 21 בנופלו<br>
+                           מקום מנוחתו בית העלמין קרית טבעון (חלקה צבאית)</p>
+                        
+                     </div>
+                  </div>
+               </div>
+
+               <div class="col-4">
+                  <div class="card my-3 border-dark border-2" style="background-color:rgb(182,25,25);">
+                     <div class="card-body py-4">
+                     <h4 class="card-title text-center fw-bolder" dir="rtl">בנימין (בני) מייסנר</h4>
+                        <img src="images_memoralization/בנימין מייסנר.jpg" class="card-img-top" alt="s1">
+                        <p class="lead card-subtitle fw-bolder fs-6" dir="rtl">  
+                        <br>בנימין (בני) מייסנר<br>
+                           בן רות ואריק<br>
+                           נפל ביום י"ט באדר א' תשמ"ט (24.02.1989)<br>
+                           בן 25 בנופלו<br>
+                           מקום מנוחתו בית העלמין קרית טבעון (חלקה צבאית)</p>
+                        
+                     </div>
+                  </div>
+               </div>
+
+
+         </div>
+
+         
+      </div>
+
 
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-
 
       <footer  style="background-color:rgba(255,0,0,0.5)">
       <div class="row justify-content-start ">
