@@ -1,17 +1,16 @@
 
 <?php
 
-   session_start();
+session_start();
 
-   include "db.php";
-   include "retrive.php";
-   include "function.php";
-   include "logic.php";
-   include "headerFooter.php";
 
-   //qury to get all players
-   $sql = "SELECT * FROM `players`";
-   $query = mysqli_query($conn, $sql);
+include "db.php";
+include "retrive.php";
+include "function.php";
+include "logic.php";
+include "headerFooter.php";
+
+
 
 ?>
 
@@ -27,38 +26,14 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-
-   </head>
-  
-   <body style="background-image: url('images/background.png') ;" style="padding-bottom: 60px;">
-      <div class = "container-xlg py-3" style="background-color:rgba(255,0,0,0.5);"> 
-         <h1 class="display-6 text-center fw-bolder" style="color:rgb(25, 33, 133);">שחקני הקבוצה הבוגרת</h1>
-         <div class="row my-5 align-items-center justify-content-center">
-         <?php while($rows = $query -> fetch_assoc()){?>
-            <?php if( $rows['tId'] === "1"){?>
-               <div class="col-3">
-                  <div class="card my-3 border-primary border-2" style="background-color:rgb(236,157,157);">
-                     <div class="card-body text-center py-4">
-                        <h4 class="card-title"style="color:rgb(61,53,134)"><?php echo $rows['Name'];?></h4>
-                        <p class="lead card-subtitle"style="color:rgb(61,53,134)"><?php echo $rows['role'];?></p>
-                        <p class="lead card-subtitle"style="color:rgb(61,53,134)"><?php echo $rows['age'];?></p>
-                        <img src="<?php echo $rows['imgsrc'];?>" class="card-img-bottom" alt="s1">
-                        <?php if (!empty($_SESSION['username'])){?>
-                        <form method="POST">
-                           <button class="btn btn-outline-danger my-2" value="<?php echo $rows['pId'];?>" name="deletePlayer">מחק</button>
-                        </form>
-                        <?php } ?>
-                     </div>
-                  </div>
-               </div>
-            <?php } ?>
-         <?php } ?>
-         </div>
-
-         
-      </div>
-
+      <script src="jquery-3.6.0.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   </head>
+
+   <body style="background-image: url('images/background.png') ;">
+        <h1> Reports page</h1>
+
 
       <footer  style="background-color:rgba(255, 0, 0, 0.4);">
          <div class="row justify-content-start ">
@@ -92,8 +67,7 @@
             
             </div> -->
          </div>
-      </footer>  
+      </footer> 
    </body>
 
-  
 </html>
