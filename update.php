@@ -17,39 +17,192 @@ session_start();
 
    <head>
       <meta charset="utf-8">
+      <!-- <meta http-equiv="X-UA-compatibale" content="IE=edge"> -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title> HWPC tivon</title>
       <link rel="stylesheet" href="style.css">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+     
 
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+      <script  type="text/javascript" >
+       
+       function saveEdits() {
+          //get the editable element
+          var editElem2 = document.getElementById("club1");
+          var editElem3 = document.getElementById("club2");
+          var editElem4 = document.getElementById("updateTimeDate");
+          var editElem5 = document.getElementById("update_event");
+          var editElem6 = document.getElementById("lastcClub1");
+          var editElem7 = document.getElementById("lastClub2");
+          var editElem8 = document.getElementById("updateScore");
+          var editElem9 = document.getElementById("updateLastTimeDate");
 
+          
+
+          //get the edited element content
+          var club1 = editElem2.innerHTML;
+          var club2 = editElem3.innerHTML;
+          var updateTimeDate = editElem4.innerHTML;
+          var update_event = editElem5.innerHTML;
+          var lastcClub1 = editElem6.innerHTML;
+          var lastClub2 = editElem7.innerHTML;
+          var updateScore = editElem8.innerHTML;
+          var updateLastTimeDate = editElem9.innerHTML;
+
+          //save the content to local storage
+          localStorage.updateEdit = club1;
+          localStorage.updateEdit1 = club2;
+          localStorage.updateEdit2 = updateTimeDate;
+          localStorage.updateEdit3 = update_event;
+          localStorage.updateEdit4 = lastcClub1;
+          localStorage.updateEdit5 = lastClub2;
+          localStorage.updateEdit6 = updateScore;
+          localStorage.updateEdit7 = updateLastTimeDate;
+
+          //write a confirmation to the user
+          document.getElementById("update").innerHTML="Edits saved!";
+       }
+      
+      function checkEdits2() {
+          //find out if the user has previously saved edits
+          if(localStorage.updateEdit!=null){
+          document.getElementById("club1").innerHTML = localStorage.updateEdit;
+          }
+         if(localStorage.updateEdit1!=null){
+         document.getElementById("club2").innerHTML = localStorage.updateEdit1;
+         }
+         if(localStorage.updateEdit2!=null){
+            document.getElementById("updateTimeDate").innerHTML = localStorage.updateEdit2;
+         }
+         if(localStorage.updateEdit3!=null){
+            document.getElementById("update_event").innerHTML = localStorage.updateEdit3;
+         }
+         if(localStorage.updateEdit4!=null){
+            document.getElementById("lastcClub1").innerHTML = localStorage.updateEdit4;
+         }
+         if(localStorage.updateEdit5!=null){
+            document.getElementById("lastClub2").innerHTML = localStorage.updateEdit5;
+         }
+         if(localStorage.updateEdit6!=null){
+            document.getElementById("updateScore").innerHTML = localStorage.updateEdit6;
+         }
+         if(localStorage.updateEdit7!=null){
+            document.getElementById("updateLastTimeDate").innerHTML = localStorage.updateEdit7;
+         }
+
+      }
+    </script>
+
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
    </head>
 
-   <body style="background-image: url('images/background.png') ;">
-    <!-- <nav>
-      <label for="click" class="menu-btn">
-      <i class="fas fa-bars"></i>
-      </label>
-      <ul>
-      <li><a href="schedule.php">מערכת שעות</a></li>
-            <li><a href="memorialization.php">הנצחה</a></li>
-            <li><a href="legacy.php">מורשת</a></li>
-            <li><a href="gallery.php">גלריה</a></li>
-            <li><a href="update.php">עידכונים</a></li>
-            <li><a href="player.php">שחקנים</a></li>
-            <li><a href="team.php">קבוצות</a></li>
-       </ul>
-      </nav> -->
+   <body onload="checkEdits2()" style="background-image: url('images/background.png') ;">
 
-      <h1>update page</h1>
-      <?php echo $_SESSION['username']; ?>
+
+   <?php if (!empty($_SESSION['username'])){?>
+            <?php $_POST['edit'] = "true" ?>
+      <?php } ?>
+   <?php if (empty($_SESSION['username'])){?>
+      <?php $_POST['edit'] = "false" ?>
+   <?php } ?>
+
+
+   <?php if (!empty($_SESSION['username'])){?>
+      <div id="update"> - Edit the text and click to save for next time
+      </div>
+   <?php } ?>
+
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center mt-4 ">
+  <div class="col">
+    <div class="card h-100 border-dark border-2">
+    <?php
+                  $path = 'images';
+                  $files = scandir($path);
+                  $files = array_diff(scandir($path), array('.', '..'));
+      ?>
+    <h5 class="card-title text-center fw-bolder fs-4">התמונה האחרונה שהועלתה</h5>
+      <div class="card-body">
+      <img src="images/<?php echo $files[count($files)-1]?>" class="card-img-top" alt="...">
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100 border-dark border-2">
+      <div class="card-body">
+        <h5 class="card-title text-center fw-bolder fs-4 " dir="rtl">האירוע האחרון</h5>
+        <p contentEditable=<?php echo $_POST['edit']?> class="card-text text-end fw-bolder text-dark" id="update_event" dir="rtl">קייטנת יולי-אוגוסט 2022 יוצאת לדרך וגם אתם יכולים להיות שם !!!</p>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+  <div class="col my-3 mt-5">
+    <div class="card h-100 border-dark border-2">
+      <div class="card-body">
+         <div class="row">      
+            <h4 class="card-title text-center fw-bolder" dir="rtl">המשחק הבא</h4>
+         </div>
+            <div class="row"> 
+               <div class="col-4">
+                  <h6 contentEditable=<?php echo $_POST['edit']?> class="text-center" dir="rtl" id="club1">הפועל קריית טבעון </h6>
+               </div>
+            <div class="col-4">
+                  <h2 class="display- text-center fw-bolder" id="vs">vs</h2>
+               </div>
+            <div class="col-4">
+                  <h6 contentEditable=<?php echo $_POST['edit']?> class="text-center" dir="rtl" id="club2">הפועל גבעת חיים </h6>
+            </div>
+         </div>
+               <div>
+                  <p contentEditable=<?php echo $_POST['edit']?> class="card-text card-subtitle fw-bolder fs-6 text-center" dir="rtl" id="updateTimeDate"> <br> 12/05/22<br>19:30</p>
+               </div>
+         </div>
+      </div>
+   </div>
+   <div class="col my-3 mt-5">
+    <div class="card h-100 border-dark border-2">
+    <h4 class="card-title text-center fw-bolder" dir="rtl">תוצאת המשחק האחרון</h4>
+      <div class="card-body">
+         <div class="row"> 
+            <div class="col-4">
+            <!-- <img src="images/TivonLogo.PNG" class="img-fluid" alt="">  -->
+            <h6 contentEditable=<?php echo $_POST['edit']?> class="text-center" dir="rtl" id="lastcClub1">הפועל קריית טבעון </h6>
+            </div>
+            <div class="col-4">
+            <h2 class="display- text-center fw-bolder" id="vs">vs</h2>
+            </div>
+            <div class="col-4">
+            <!-- <img src="..." class="img-thumbnail" alt="...">  -->
+            <h6 contentEditable=<?php echo $_POST['edit']?> class="text-center" dir="rtl" id="lastClub2">הפועל גבעת חיים </h6>
+            </div>
+            <p  contentEditable=<?php echo $_POST['edit']?> class="lead card-subtitle fw-bolder fs-3 text-center " id="updateScore"> 17:6</p>
+         </div>
+         <div>
+            <p contentEditable=<?php echo $_POST['edit']?> class="lead card-subtitle fw-bolder fs-6 text-center" dir="rtl" id="updateLastTimeDate"> <br> 11/06/22<br>19:30</p>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<?php if (!empty($_SESSION['username'])){?>
+       <input type="button" class="btn btn-success" value="save my edits" onclick="saveEdits();"/>
+<?php } ?>
+ 
 
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   
   
+ 
+
+
+
+
       <footer  style="background-color:rgba(255,0,0,0.5)">
       <div class="row justify-content-start ">
          <div class="col-1 mt-3 text-center ">
@@ -83,6 +236,7 @@ session_start();
          </div> -->
       </div>
   </footer>
+
    </body>
 
 </html>
