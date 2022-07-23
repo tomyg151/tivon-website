@@ -10,6 +10,13 @@ include "function.php";
 include "logic.php";
 include "headerFooter.php";
 
+$sql = "SELECT * FROM `teams`";
+$query = mysqli_query($conn, $sql);
+
+$sqlK = "SELECT * FROM `kids`";
+$queryKids = mysqli_query($conn, $sqlK);
+
+
 
 ?>
 
@@ -25,39 +32,43 @@ include "headerFooter.php";
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-
+      <script src="jquery-3.6.0.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
    </head>
 
    <body style="background-image: url('images/background.png') ;">
-    <!-- <nav>
-      <label for="click" class="menu-btn">
-      <i class="fas fa-bars"></i>
-      </label>
-      <ul>
-      <li><a href="schedule.php">מערכת שעות</a></li>
-            <li><a href="memorialization.php">הנצחה</a></li>
-            <li><a href="legacy.php">מורשת</a></li>
-            <li><a href="gallery.php">גלריה</a></li>
-            <li><a href="update.php">עידכונים</a></li>
-            <li><a href="player.php">שחקנים</a></li>
-            <li><a href="teams.php">קבוצות</a></li>
-       </ul>
-      </nav> -->
+   <!-- creating card for each team in db -->
+   <div class = "container-xlg py-3 text-center"> 
+         <div class="row">
+         <?php while($rows = $query -> fetch_assoc()){?>
+               <div class="col-3">
+                  <div class="card my-3 border-primary border-2" style="background-color:rgba(255,7,7,0.5);">
+                     <div class="card-body text-center py-4">
+                        <h4 class="card-title"style="color:rgb(255,255,255)"><?php echo $rows['name'];?></h4>
+                        <p class="lead card-subtitle"style="color:rgb(255,255,255)"><?php echo $rows['tId'];?></p>
+                        <?php if ($rows['imgSrc'] != null){ ?>
+                        <img src="<?php echo $rows['imgSrc'];?>" class="card-img-bottom" alt="s1" width="50" height="150"> <?php }?>
+                        <?php if (!empty($_SESSION['username'])){?>
+                        <form method="POST">
+                        <?php } ?>
+                     </div>
+                  </div>
+               </div>
+         <?php } ?>
+         </div>
+      </div>
 
-      <h1>teams page</h1>
-      <?php echo $_SESSION['username']; ?>
 
-
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-   
-   
       <footer  style="background-color:rgba(255,0,0,0.5)">
       <div class="row justify-content-start ">
          <div class="col-1 mt-3 text-center ">
             <!-- <img src="shopingLogo.jpg" class="img-fluid" alt="shoping logo"> -->
+            <a href="https://turboswim.com/en/">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                </svg>
+            </a>
          </div>
          <div class="col-1 mt-3 text-center">
             <a href="https://www.instagram.com/accounts/login/?next=/waterpolo_tivon/">

@@ -28,21 +28,21 @@
    </head>
    <div class="container-lg "></div>
   
-   <body style="background-image: url('images_memoralization/candle.jpg') ;">
+   <body style="background-image: url('images_memoralization/candle.jpeg') ;">
 
          <div class="col mx-auto py-2">
-            <h4 class="display-3 text-center fw-bolder" style="color:rgb(255, 255, 255);"> <img src="images_memoralization/יזכור.png" width="2" class="col-1 mx-auto" alt="s1"> יזכור</h4>
+            <h4 class="display-3 text-center fw-bolder" style="color:rgb(255, 255, 255);"> <img src="images_memoralization/scandle.png" width="2" class="col-1 mx-auto" alt="s1"> יזכור</h4>
          </div>
 
 
-      <div class = "container-xlg py-3" style="background-color:rgba(1,1,1,0.5);"> 
+      <div class = "container-xlg py-3"> 
          <div class="row my-5 align-items-center justify-content-center">
 
                <div class="col-4">
                   <div class="card my-3 border-dark border-2" style="background-color:rgb(182,25,25);">
                      <div class="card-body py-4">
                         <h4 class="card-title text-center fw-bolder" dir="rtl">דני הרן</h4>
-                        <img src="images_memoralization/דני הרן.jpg" width="50" height="450" class="card-img-top" alt="s1">
+                        <img src="images_memoralization/dani_haren.jpeg" height="525" class="card-img-top" alt="s1">
                         <p class="lead card-subtitle fw-bolder fs-6" dir="rtl">  
                         <br>
                            דני הרן<br>
@@ -59,7 +59,7 @@
                   <div class="card my-3 border-dark border-2" style="background-color:rgb(182,25,25);">
                      <div class="card-body py-4">
                      <h4 class="card-title text-center fw-bolder" dir="rtl">בר רהב</h4>
-                        <img src="images_memoralization/בר רהב.jpg" class="card-img-top" alt="s1">
+                        <img src="images_memoralization/bar_rahav.jpeg" class="card-img-top" alt="s1">
                         <p class="lead card-subtitle fw-bolder fs-6" dir="rtl">   
                         <br>בר רהב<br>
                            בן נעמה ואפי<br>
@@ -75,7 +75,7 @@
                   <div class="card my-3 border-dark border-2" style="background-color:rgb(182,25,25);">
                      <div class="card-body py-4">
                      <h4 class="card-title text-center fw-bolder" dir="rtl">ניר ניקסון</h4>
-                        <img src="images_memoralization/ניר ניקסון.jpg" class="card-img-top" alt="s1">
+                        <img src="images_memoralization/nir_nixon.jpeg" class="card-img-top" alt="s1">
                         <p class="lead card-subtitle fw-bolder fs-6" dir="rtl">   
                         <br>ניר ניקסון <br>
                            בן יפית ואילן <br>
@@ -92,7 +92,7 @@
                   <div class="card my-3 border-dark border-2" style="background-color:rgb(182,25,25);">
                      <div class="card-body py-4">
                      <h4 class="card-title text-center fw-bolder" dir="rtl">יריב עמית</h4>
-                        <img src="images_memoralization/יריב עמית.jpg" class="card-img-top" alt="s1">
+                        <img src="images_memoralization/yaiv_amit.jpeg" class="card-img-top" alt="s1">
                         <p class="lead card-subtitle fw-bolder fs-6" dir="rtl">  
                         <br>
                         יריב עמית<br>
@@ -109,7 +109,7 @@
                   <div class="card my-3 border-dark border-2" style="background-color:rgb(182,25,25);">
                      <div class="card-body py-4">
                      <h4 class="card-title text-center fw-bolder" dir="rtl">מאיר שנלר</h4>
-                        <img src="images_memoralization/מאיר שנלר.jpg" class="card-img-top" alt="s1">
+                        <img src="images_memoralization/meir_shlner.jpeg" class="card-img-top" alt="s1">
                         <p class="lead card-subtitle fw-bolder fs-6" dir="rtl">  
                         <br>מאיר שנלר<br>
                            בן שושנה ויוסף<br>
@@ -125,7 +125,7 @@
                   <div class="card my-3 border-dark border-2" style="background-color:rgb(182,25,25);">
                      <div class="card-body py-4">
                      <h4 class="card-title text-center fw-bolder" dir="rtl">בנימין (בני) מייסנר</h4>
-                        <img src="images_memoralization/בנימין מייסנר.jpg" class="card-img-top" alt="s1">
+                        <img src="images_memoralization/ben_meysner.jpeg" class="card-img-top" alt="s1">
                         <p class="lead card-subtitle fw-bolder fs-6" dir="rtl">  
                         <br>בנימין (בני) מייסנר<br>
                            בן רות ואריק<br>
@@ -151,9 +151,11 @@
       <div class="row justify-content-start ">
          <div class="col-1 mt-3 text-center ">
             <!-- <img src="shopingLogo.jpg" class="img-fluid" alt="shoping logo"> -->
+            <a href="https://turboswim.com/en/">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                </svg>
+            </a>
          </div>
          <div class="col-1 mt-3 text-center">
             <a href="https://www.instagram.com/accounts/login/?next=/waterpolo_tivon/">

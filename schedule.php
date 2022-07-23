@@ -1,4 +1,3 @@
-
 <?php
 
 session_start();
@@ -73,7 +72,7 @@ session_start();
                   }
                   .watermark {
                   display: block;
-                  }	             
+                  }                 
                }
             </style>
 

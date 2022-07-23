@@ -3,11 +3,13 @@
                   <!-- <a href="#"> -->
                      <div class="col-1 py-2 text-center">
                         <!-- <img src="shopingLogo.jpg" class="img-fluid" alt="shoping logo"> -->
+                        <a href="https://turboswim.com/en/">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                         </svg>
+                        </a>
                      </div>
-                  </a>
+                  
                 <div class="col-1 py-2 text-center">
                   <a href="https://www.instagram.com/accounts/login/?next=/waterpolo_tivon/">
                      <!-- <img src="instagramLogo.jpg" class="img-fluid" alt="insta logo" > -->
@@ -52,17 +54,83 @@
                <i class="fas fa-bars"></i>
          </label>
          <ul>
+               <?php if (!empty($_SESSION['username'])){?>
+                  <?php if ($_SESSION['username'] == "admin"){?>
+                     <li class="nav-item dropdown">
+                     <a href="gallery.php" class="dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">הנפקת דוח"ות</a>
+                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="reportGallery.php">דו"ח גלריה </a></li>
+                        <li><a class="dropdown-item" href="gallery.php">  </a></li>
+                        <li><a class="dropdown-item" href="gallery.php">  </a></li>
+                        <li><a class="dropdown-item" href="gallery.php">  </a></li>
+                        <li><a class="dropdown-item" href="gallery.php">  </a></li>
+                        <li><a class="dropdown-item" href="gallery.php">  </a></li>
+                        <li><a class="dropdown-item" href="gallery.php">  </a></li>
+                        <li><a class="dropdown-item" href="gallery.php">  </a></li>
+                     </ul>
+                     </li>
+                  <?php }?>
+               <?php }?>
                <li><a href="schedule.php">מערכת שעות</a></li>
                <li><a href="memorialization.php">הנצחה</a></li>
                <li><a href="legacy.php">מורשת</a></li>
-               <li><a href="gallery.php">גלריה</a></li>
+               <li class="nav-item dropdown">
+                  <a href="gallery.php" class="dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">גלריה</a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     <li><a class="dropdown-item" href="gallery.php">הצג גלריה </a></li>
+                     <?php if (!empty($_SESSION['username'])){?>
+                     <li><hr class="dropdown-divider"></li>
+                     <li><a class="dropdown-item" style="color:rgb(255, 0, 0);" href="gallery.php" data-bs-toggle="modal" data-bs-target="#ModalDeleteImg">מחק תמונה</a></li>
+                     <li><a class="dropdown-item" style="color:rgb(60, 179, 113);" href="gallery.php" data-bs-toggle="modal" data-bs-target="#ModalTogglePhoto">הוסף תמונה</a></li>
+                     <?php } ?>
+                  </ul>
+               </li>
                <li><a href="update.php">עידכונים</a></li>
-               <li><a href="player.php">שחקנים</a></li>
-               <li><a href="team.php">קבוצות</a></li>
+               <li class="nav-item dropdown">
+               <a href="#" class="dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">קבוצות</a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     <li><a class="dropdown-item fw-bolder" href="player.php">קבוצת הבוגרים</a></li>
+                     <li><a class="dropdown-item" href="team.php">כל הקבוצות</a></li>
+                     <form method="POST" action="showTeam.php">
+                        <li><button class="dropdown-item" value="2" name="teamId">קבוצת הבוגרות</button></li>
+                     </form>
+                     <form method="POST" action="showTeam.php">
+                        <li><button class="dropdown-item" value="3" name="teamId">בנים 18</button></li>
+                     </form>
+                     <form method="POST" action="showTeam.php">
+                        <li><button class="dropdown-item" value="4" name="teamId">בנות 18</button></li>
+                     </form>
+                     <form method="POST" action="showTeam.php">
+                        <li><button class="dropdown-item" value="5" name="teamId">בנים 16</button></li>
+                     </form>
+                     <form method="POST" action="showTeam.php">
+                        <li><button class="dropdown-item" value="6" name="teamId">בנות 16</button></li>
+                     </form>
+                     <form method="POST" action="showTeam.php">
+                        <li><button class="dropdown-item" value="7" name="teamId">בנים 14</button></li>
+                     </form>
+                     <form method="POST" action="showTeam.php">
+                        <li><button class="dropdown-item" value="8" name="teamId">בנות 14</button></li>
+                     </form>
+                     <form method="POST" action="showTeam.php">
+                        <li><button class="dropdown-item" value="9" name="teamId">בית ספר כדורמים</button></li>
+                     </form>
+                     <?php if (!empty($_SESSION['username'])){?>
+                     <li><hr class="dropdown-divider"></li>
+                     <li><a class="dropdown-item" style="color:rgb(255, 0, 0);" href="team.php" data-bs-toggle="modal" data-bs-target="#ModalDeleteTeam">מחק קבוצה</a></li>
+                     <li><a class="dropdown-item" style="color:rgb(255, 0, 0);" href="player.php" data-bs-toggle="modal" data-bs-target="#ModalDeletePlayer">מחק שחקן מעל 18 </a></li>
+                     <li><a class="dropdown-item" style="color:rgb(255, 0, 0);" href="team.php" data-bs-toggle="modal" data-bs-target="#ModalDeleteKid">מחק שחקן מתחת 18</a></li>
+                     <li><a class="dropdown-item" style="color:rgb(60, 179, 113);" href="team.php" data-bs-toggle="modal" data-bs-target="#ModalToggleTeam">הוסף קבוצה</a></li>
+                     <li><a class="dropdown-item" style="color:rgb(60, 179, 113);" href="player.php" data-bs-toggle="modal" data-bs-target="#ModalTogglePlayer">הוסף שחקן מעל 18</a></li>
+                     <li><a class="dropdown-item" style="color:rgb(60, 179, 113);" href="team.php" data-bs-toggle="modal" data-bs-target="#ModalToggleKid">הוסף שחקן מתחת 18 ובוגרות</a></li>
+                     <?php } ?>
+                  </ul>
+               </li>
+               <li><a href="index.php">דף הבית</a></li>
          </ul>
       </nav>
+ 
 
   
    </body>
-
 

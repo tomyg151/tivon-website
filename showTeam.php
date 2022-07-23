@@ -1,17 +1,22 @@
 
 <?php
-   
-   session_start();
 
-   include "db.php";
-   include "retrive.php";
-   include "function.php";
-   include "logic.php";
-   include "headerFooter.php";
+session_start();
 
-   //qury to get all players
-   $sql = "SELECT * FROM `players`";
-   $query = mysqli_query($conn, $sql);
+
+include "db.php";
+include "retrive.php";
+include "function.php";
+include "logic.php";
+include "headerFooter.php";
+
+$sql = "SELECT * FROM `teams`";
+$query = mysqli_query($conn, $sql);
+
+$sqlK = "SELECT * FROM `kids`";
+$queryKids = mysqli_query($conn, $sqlK);
+
+
 
 ?>
 
@@ -27,36 +32,52 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-
+      <script src="jquery-3.6.0.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
    </head>
-  
-   <body style="background-image: url('images/background.png') ;" style="padding-bottom: 60px;">
-      <div class = "container-xlg py-3" style="background-color:rgba(255,0,0,0.5);"> 
-      
-         <!-- Bulding card for each proffesinal player in the db -->
-         <h1 class="display-6 text-center fw-bolder" style="color:rgb(25, 33, 133);">שחקני הקבוצה הבוגרת</h1>
-         <div class="row my-5 align-items-center justify-content-center">
+
+   <body style="background-image: url('images/background.png') ;">
+   <!-- showing in table all the U18 players in team that selected. -->
+   <div class = "container-xlg py-3 text-center" style="background-color:rgba(255,0,0,0.5);"> 
+         <div class="row justify-content-md-center">
          <?php while($rows = $query -> fetch_assoc()){?>
-            <?php if( $rows['tId'] === "1"){?>
-               <div class="col-3">
-                  <div class="card my-3 border-primary border-2" style="background-color:rgb(236,157,157);">
-                     <div class="card-body text-center py-4">
-                        <h4 class="card-title"style="color:rgb(61,53,134)"><?php echo $rows['Name'];?></h4>
-                        <p class="lead card-subtitle"style="color:rgb(61,53,134)"><?php echo $rows['role'];?></p>
-                        <p class="lead card-subtitle"style="color:rgb(61,53,134)">Age <?php echo $rows['age'];?></p>
-                        <img src="<?php echo $rows['imgsrc'];?>" class="card-img-bottom" width="100" height="250" alt="s1">
-                        <p class="card-text" style="color:rgb(61,53,134)">Hat number: <?php echo $rows['pId'];?> </p>
-                     </div>
-                  </div>
-               </div>
-            <?php } ?>
+            <?php if($rows["tId"] == $_POST['teamId']){?>
+                <div class="col">
+                    <img src="<?php echo $rows['imgSrc'];?>" height="400" width="600" >
+                </div>
+            <?php }?>
          <?php } ?>
          </div>
-
-         
+         <a id="namesTable">
+            <div>
+               <h1 class="display-6 text-center fw-bolder my-5" style="color:rgb(25, 33, 133);">שחקני הקבוצה</h1>
+               <table class="table table-dark table-hover">
+                  <thead>
+                  <tr>
+                     <th scope="col">ID</th>
+                     <th scope="col">Full Name</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <?php
+                  if(isset($_POST['teamId'])){
+                     while($rowsK = $queryKids -> fetch_assoc()){
+                        if($rowsK['tId'] == $_POST['teamId']){
+                        ?>
+                        <tr>
+                        <td><?php echo $rowsK['kId']?></td>
+                        <td><?php echo $rowsK['Name']?></td>
+                        </tr>
+                        <?php } ?>
+                     <?php } ?>
+                  <?php } ?>
+                  </tbody>
+               </table>
+            <div>
+         </a>
       </div>
 
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
       <footer  style="background-color:rgba(255,0,0,0.5)">
       <div class="row justify-content-start ">
@@ -95,5 +116,4 @@
   </footer>
    </body>
 
-  
 </html>

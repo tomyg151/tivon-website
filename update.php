@@ -17,13 +17,13 @@ session_start();
 
    <head>
       <meta charset="utf-8">
-      <!-- <meta http-equiv="X-UA-compatibale" content="IE=edge"> -->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title> HWPC tivon</title>
       <link rel="stylesheet" href="style.css">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-     
 
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
       <script  type="text/javascript" >
        
        function saveEdits() {
@@ -92,124 +92,121 @@ session_start();
 
       }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
    </head>
 
    <body onload="checkEdits2()" style="background-image: url('images/background.png') ;">
 
 
-   <?php if (!empty($_SESSION['username'])){?>
-            <?php $_POST['edit'] = "true" ?>
+      <?php if (!empty($_SESSION['username'])){?>
+               <?php $_POST['edit'] = "true" ?>
+         <?php } ?>
+      <?php if (empty($_SESSION['username'])){?>
+         <?php $_POST['edit'] = "false" ?>
       <?php } ?>
-   <?php if (empty($_SESSION['username'])){?>
-      <?php $_POST['edit'] = "false" ?>
-   <?php } ?>
 
 
-   <?php if (!empty($_SESSION['username'])){?>
-      <div id="update"> - Edit the text and click to save for next time
-      </div>
-   <?php } ?>
-
-
-
-<div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center mt-4 ">
-  <div class="col">
-    <div class="card h-100 border-dark border-2">
-    <?php
-                  $path = 'images';
-                  $files = scandir($path);
-                  $files = array_diff(scandir($path), array('.', '..'));
-      ?>
-    <h5 class="card-title text-center fw-bolder fs-4">התמונה האחרונה שהועלתה</h5>
-      <div class="card-body">
-      <img src="images/<?php echo $files[count($files)-1]?>" class="card-img-top" alt="...">
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100 border-dark border-2">
-      <div class="card-body">
-        <h5 class="card-title text-center fw-bolder fs-4 " dir="rtl">האירוע האחרון</h5>
-        <p contentEditable=<?php echo $_POST['edit']?> class="card-text text-end fw-bolder text-dark" id="update_event" dir="rtl">קייטנת יולי-אוגוסט 2022 יוצאת לדרך וגם אתם יכולים להיות שם !!!</p>
-      </div>
-    </div>
-  </div>
-</div>
-  <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
-  <div class="col my-3 mt-5">
-    <div class="card h-100 border-dark border-2">
-      <div class="card-body">
-         <div class="row">      
-            <h4 class="card-title text-center fw-bolder" dir="rtl">המשחק הבא</h4>
+      <?php if (!empty($_SESSION['username'])){?>
+         <div id="update"> - Edit the text and click to save for next time
          </div>
-            <div class="row"> 
-               <div class="col-4">
-                  <h6 contentEditable=<?php echo $_POST['edit']?> class="text-center" dir="rtl" id="club1">הפועל קריית טבעון </h6>
+      <?php } ?>
+
+
+
+         <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center mt-4 ">
+         <div class="col">
+         <div class="card h-100 border-dark border-2">
+         <?php
+                        $path = 'gallery';
+                        $files = scandir($path);
+                        $files = array_diff(scandir($path), array('.', '..'));
+            ?>
+         <h5 class="card-title text-center fw-bolder fs-4">התמונה האחרונה שהועלתה</h5>
+            <div class="card-body">
+            <img src="gallery/<?php echo $files[count($files)-1]?>" class="card-img-top" alt="...">
+            </div>
+         </div>
+         </div>
+         <div class="col">
+         <div class="card h-100 border-dark border-2">
+            <div class="card-body">
+            <h5 class="card-title text-center fw-bolder fs-4 " dir="rtl">האירוע האחרון</h5>
+            <p contentEditable=<?php echo $_POST['edit']?> class="card-text text-end fw-bolder text-dark" id="update_event" dir="rtl">קייטנת יולי-אוגוסט 2022 יוצאת לדרך וגם אתם יכולים להיות שם !!!</p>
+            </div>
+         </div>
+         </div>
+         </div>
+         <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+         <div class="col my-3 mt-5">
+         <div class="card h-100 border-dark border-2">
+            <div class="card-body">
+               <div class="row">      
+                  <h4 class="card-title text-center fw-bolder" dir="rtl">המשחק הבא</h4>
                </div>
-            <div class="col-4">
+                  <div class="row"> 
+                     <div class="col-4">
+                        <h6 contentEditable=<?php echo $_POST['edit']?> class="text-center" dir="rtl" id="club1">הפועל קריית טבעון </h6>
+                     </div>
+                  <div class="col-4">
+                        <h2 class="display- text-center fw-bolder" id="vs">vs</h2>
+                     </div>
+                  <div class="col-4">
+                        <h6 contentEditable=<?php echo $_POST['edit']?> class="text-center" dir="rtl" id="club2">הפועל גבעת חיים </h6>
+                  </div>
+               </div>
+                     <div>
+                        <p contentEditable=<?php echo $_POST['edit']?> class="card-text card-subtitle fw-bolder fs-6 text-center" dir="rtl" id="updateTimeDate"> <br> 12/05/22<br>19:30</p>
+                     </div>
+               </div>
+            </div>
+         </div>
+         <div class="col my-3 mt-5">
+         <div class="card h-100 border-dark border-2">
+         <h4 class="card-title text-center fw-bolder" dir="rtl">תוצאת המשחק האחרון</h4>
+            <div class="card-body">
+               <div class="row"> 
+                  <div class="col-4">
+                  <!-- <img src="images/TivonLogo.PNG" class="img-fluid" alt="">  -->
+                  <h6 contentEditable=<?php echo $_POST['edit']?> class="text-center" dir="rtl" id="lastcClub1">הפועל קריית טבעון </h6>
+                  </div>
+                  <div class="col-4">
                   <h2 class="display- text-center fw-bolder" id="vs">vs</h2>
+                  </div>
+                  <div class="col-4">
+                  <!-- <img src="..." class="img-thumbnail" alt="...">  -->
+                  <h6 contentEditable=<?php echo $_POST['edit']?> class="text-center" dir="rtl" id="lastClub2">הפועל גבעת חיים </h6>
+                  </div>
+                  <p  contentEditable=<?php echo $_POST['edit']?> class="lead card-subtitle fw-bolder fs-3 text-center " id="updateScore"> 17:6</p>
                </div>
-            <div class="col-4">
-                  <h6 contentEditable=<?php echo $_POST['edit']?> class="text-center" dir="rtl" id="club2">הפועל גבעת חיים </h6>
-            </div>
-         </div>
                <div>
-                  <p contentEditable=<?php echo $_POST['edit']?> class="card-text card-subtitle fw-bolder fs-6 text-center" dir="rtl" id="updateTimeDate"> <br> 12/05/22<br>19:30</p>
+                  <p contentEditable=<?php echo $_POST['edit']?> class="lead card-subtitle fw-bolder fs-6 text-center" dir="rtl" id="updateLastTimeDate"> <br> 11/06/22<br>19:30</p>
                </div>
-         </div>
-      </div>
-   </div>
-   <div class="col my-3 mt-5">
-    <div class="card h-100 border-dark border-2">
-    <h4 class="card-title text-center fw-bolder" dir="rtl">תוצאת המשחק האחרון</h4>
-      <div class="card-body">
-         <div class="row"> 
-            <div class="col-4">
-            <!-- <img src="images/TivonLogo.PNG" class="img-fluid" alt="">  -->
-            <h6 contentEditable=<?php echo $_POST['edit']?> class="text-center" dir="rtl" id="lastcClub1">הפועל קריית טבעון </h6>
             </div>
-            <div class="col-4">
-            <h2 class="display- text-center fw-bolder" id="vs">vs</h2>
-            </div>
-            <div class="col-4">
-            <!-- <img src="..." class="img-thumbnail" alt="...">  -->
-            <h6 contentEditable=<?php echo $_POST['edit']?> class="text-center" dir="rtl" id="lastClub2">הפועל גבעת חיים </h6>
-            </div>
-            <p  contentEditable=<?php echo $_POST['edit']?> class="lead card-subtitle fw-bolder fs-3 text-center " id="updateScore"> 17:6</p>
          </div>
-         <div>
-            <p contentEditable=<?php echo $_POST['edit']?> class="lead card-subtitle fw-bolder fs-6 text-center" dir="rtl" id="updateLastTimeDate"> <br> 11/06/22<br>19:30</p>
          </div>
-      </div>
-    </div>
-  </div>
-</div>
+         </div>
 
 
 
-<?php if (!empty($_SESSION['username'])){?>
-       <input type="button" class="btn btn-success" value="save my edits" onclick="saveEdits();"/>
-<?php } ?>
- 
+         <?php if (!empty($_SESSION['username'])){?>
+            <input type="button" class="btn btn-success" value="save my edits" onclick="saveEdits();"/>
+         <?php } ?>
+
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  
-  
- 
-
-
-
-
       <footer  style="background-color:rgba(255,0,0,0.5)">
       <div class="row justify-content-start ">
          <div class="col-1 mt-3 text-center ">
             <!-- <img src="shopingLogo.jpg" class="img-fluid" alt="shoping logo"> -->
+            <a href="https://turboswim.com/en/">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                </svg>
+            </a>
          </div>
          <div class="col-1 mt-3 text-center">
             <a href="https://www.instagram.com/accounts/login/?next=/waterpolo_tivon/">
@@ -236,7 +233,6 @@ session_start();
          </div> -->
       </div>
   </footer>
-
    </body>
 
 </html>

@@ -1,17 +1,16 @@
 
 <?php
-   
-   session_start();
 
-   include "db.php";
-   include "retrive.php";
-   include "function.php";
-   include "logic.php";
-   include "headerFooter.php";
+session_start();
 
-   //qury to get all players
-   $sql = "SELECT * FROM `players`";
-   $query = mysqli_query($conn, $sql);
+
+include "db.php";
+include "retrive.php";
+include "function.php";
+include "logic.php";
+include "headerFooter.php";
+
+
 
 ?>
 
@@ -27,38 +26,97 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+      <script src="jquery-3.6.0.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      
+      <style type="text/css">
+         .watermark { display: none; }
+
+         @media print {
+         header, footer, nav, button {display: none !important;}
+            /*adding text at the end of the printed page*/
+            body:after{
+                content:"All rights reserved to Tom&Dennis © contact: 052-690-9944";
+            }
+            .watermark {
+            display: block;
+            }	
+
+         }
+               
+      </style>
+
+
 
    </head>
-  
-   <body style="background-image: url('images/background.png') ;" style="padding-bottom: 60px;">
-      <div class = "container-xlg py-3" style="background-color:rgba(255,0,0,0.5);"> 
-      
-         <!-- Bulding card for each proffesinal player in the db -->
-         <h1 class="display-6 text-center fw-bolder" style="color:rgb(25, 33, 133);">שחקני הקבוצה הבוגרת</h1>
+
+   <body style="background-image: url('images/background.png') ;">
+   
+        
+      <div class = "container-xlg py-3">
+      <?php
+      function folderSize ($dir)
+      {
+         $size = 0;
+
+         foreach (glob(rtrim($dir, '/').'/*', GLOB_NOSORT) as $each) {
+         $size += is_file($each) ? filesize($each) : folderSize($each);
+         }
+         return $size;
+        
+      }
+      date_default_timezone_set('Asia/Jerusalem');
+      $date = date('d-m-y h:i:s');
+      ?>
          <div class="row my-5 align-items-center justify-content-center">
-         <?php while($rows = $query -> fetch_assoc()){?>
-            <?php if( $rows['tId'] === "1"){?>
-               <div class="col-3">
-                  <div class="card my-3 border-primary border-2" style="background-color:rgb(236,157,157);">
-                     <div class="card-body text-center py-4">
-                        <h4 class="card-title"style="color:rgb(61,53,134)"><?php echo $rows['Name'];?></h4>
-                        <p class="lead card-subtitle"style="color:rgb(61,53,134)"><?php echo $rows['role'];?></p>
-                        <p class="lead card-subtitle"style="color:rgb(61,53,134)">Age <?php echo $rows['age'];?></p>
-                        <img src="<?php echo $rows['imgsrc'];?>" class="card-img-bottom" width="100" height="250" alt="s1">
-                        <p class="card-text" style="color:rgb(61,53,134)">Hat number: <?php echo $rows['pId'];?> </p>
-                     </div>
+            <div class="col-5">
+            <div class="watermark my-3 ">מועדון כדורמים קרית טבעון   <img src="images/TivonLogo.PNG" height="50" width="100" >
+            </div>
+               <!-- Bulding card for each proffesinal player in the db -->
+               <div class="card">
+                  <div class="card-header text-center" dir ="rtl">
+                     דו"ח זיכרון 
+                  </div>
+                  <div class="card-body" id="GalleryReport">
+                  <h5 class="card-title text-center fw-bolder fs-3" dir ="rtl">זיכרון תפוס מתיקיות התמונות</h5>
+                  <p class="card-text fs-6 fw-bold text-center" dir="rtl"><?php echo $date; ?> זמן יצירת הדו"ח</p>
+                     <table class="table table-striped">
+                        <thead>
+                           <tr>
+                              <th scope="col">Folder</th>
+                              <th scope="col">Size</th>
+                           </tr>
+                        </thead>
+                           <tbody>
+                              <tr>
+                                 <td>Gallery</td>
+                                 <td><?php echo round((folderSize("gallery")/1024/1024),3);?>MB</td>
+                              </tr>
+                              <tr>
+                                 <td>Players Images</td>
+                                 <td><?php echo round((folderSize("playersimages")/1024/1024),3);?>MB</td>
+                              </tr>
+                              <tr>
+                                 <td>Genreal Images</td>
+                                 <td><?php echo round((folderSize("images")/1024/1024),3);?>MB</td>
+                              </tr>
+                           </tbody>
+                        </table>
                   </div>
                </div>
-            <?php } ?>
-         <?php } ?>
+               <button type="button" class="btn btn-primary my-3" onclick="window.print()">הדפס</button>
+            </div>
          </div>
 
-         
       </div>
 
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      
+   
 
-      <footer  style="background-color:rgba(255,0,0,0.5)">
+
+      <footer style="background-color:rgba(255,0,0,0.5)">
       <div class="row justify-content-start ">
          <div class="col-1 mt-3 text-center ">
             <!-- <img src="shopingLogo.jpg" class="img-fluid" alt="shoping logo"> -->
@@ -84,7 +142,7 @@
                </svg>
             </a>
          </div>
-         <div class= "col mt-3 me-3 text-center">
+         <div id="credit" class= "col mt-3 me-3 text-center">
             <h6 class="text-end fw-bolder text-uppercase">All rights reserved to Tom&Dennis ©<br>contact: 052-690-9944</h6>
             <!-- <h4 class="text-end fw-bolder text-uppercase pe-3 pb-5"> contact: 052-690-9944</h4> -->
          </div>
@@ -95,5 +153,4 @@
   </footer>
    </body>
 
-  
 </html>

@@ -7,12 +7,26 @@
 } 
 
 
-
-
-textarea{
-  margin-left: auto;
-  margin-right: auto;
+/* footer{
+  min-height:50px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
+
+header{ min-height:50px;
+}
+body{ height:100vh;
+  padding-bottom: 60px;
+  display:flex; 
+  flex-direction:column;
+} */
+
+/* .logoTivon{
+    float: right;  
+} */
 
 
 .siteName{
@@ -129,7 +143,7 @@ input[type="checkbox"]{
 }
 
 
+ 
 
 
-
-
+/* *********************************************************************** */
