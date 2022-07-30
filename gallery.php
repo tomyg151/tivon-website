@@ -1,13 +1,12 @@
 <?php
 
   session_start();
-
-  
   include "db.php";
   include "retrive.php";
   include "function.php";
   include "logic.php";
   include "headerFooter.php";
+
 
 ?>
 
@@ -24,49 +23,37 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-      <link rel="stylesheet" href="style.css">
+      <style>
+         #imgG {
+         width: 270px;
+         border: 1px solid black;
+         }
+      </style>
+
    </head>
 
    <body style="background-image: url('images/background.png') ;">
-   <div class = "container-xlg py-3"> 
-    <div id="carouselExampleIndicators" class="carousel slide ms-5 me-5 pe-5 ps-5" data-bs-ride="carousel">
-      <div class="carousel-inner" >
-        <div class="carousel-item active text-center" data-bs-interval="5000">
-          <img src="images/bs.jpeg" height="500" width="1000" alt="...">
-        </div>
-        <?php
-          $path = 'gallery';
-          $files = scandir($path);
-          $files = array_diff(scandir($path), array('.', '..'));
-          foreach($files as $file){?>
-            <div class="carousel-item text-center" data-bs-interval="5000">
-              <img id ="imgSlide" src="gallery/<?php echo $file?>" alt="..." height="500" width="1000">
-            </div>
-         <?php } ?> 
-    </div>
-
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-
-    </div>
-   </div>
-
-    
-
-    
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-        </script>
+      <div class = "container-xlg py-3 text-center" style="background-color:rgba(255,0,0,0.5);">
+         <div class="row">
+            <?php
+            $path = 'gallery';
+            $files = scandir($path);
+            $files = array_diff(scandir($path), array('.', '..'));
+            foreach($files as $file){?>
+               <div class="col-4">
+               <?php if (!empty($_SESSION['username'])){
+                echo $file ?>
+                <?php }?>
+                <br>
+               <img id="imgG" src="gallery/<?php echo $file?>" height="200" width="350" alt="..." class="my-5">
+               </div>
+            <?php } ?> 
+         </div>
+      </div>
 
 
-<footer  style="background-color:rgba(255,0,0,0.5)">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      <footer  style="background-color:rgba(255,0,0,0.5)">
       <div class="row justify-content-start ">
          <div class="col-1 mt-3 text-center ">
             <!-- <img src="shopingLogo.jpg" class="img-fluid" alt="shoping logo"> -->

@@ -28,21 +28,32 @@
    </head>
 
    <body style="background-image: url('images/background.png') ;">
-   <div class = "container-xlg py-3"> 
+
     <div id="carouselExampleIndicators" class="carousel slide ms-5 me-5 pe-5 ps-5" data-bs-ride="carousel">
+
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      </div>
+
       <div class="carousel-inner" >
-        <div class="carousel-item active text-center" data-bs-interval="5000">
-          <img src="images/bs.jpeg" height="500" width="1000" alt="...">
+        <div class="carousel-item active" data-bs-interval="10000">
+          <img src="images/image1.png"  width="100%" height="200" class="d-block w-20 " alt="...">
         </div>
-        <?php
-          $path = 'gallery';
-          $files = scandir($path);
-          $files = array_diff(scandir($path), array('.', '..'));
-          foreach($files as $file){?>
-            <div class="carousel-item text-center" data-bs-interval="5000">
-              <img id ="imgSlide" src="gallery/<?php echo $file?>" alt="..." height="500" width="1000">
-            </div>
-         <?php } ?> 
+
+        <div class="carousel-item" data-bs-interval="10000">
+          <img src="images/image2.png"  width="100%" height="200" class="d-block w-20 " alt="...">
+        </div>
+
+        <div class="carousel-item" data-bs-interval="10000">
+          <img src="images/image3.png"  width="100%" height="200" class="d-block h-10 w-20 " alt="...">
+        </div>
+
+        <div class="carousel-item" data-bs-interval="10000">
+          <img src="images/image4.jpg"  width="100%" height="200" class="d-block h-10 w-20 " alt="...">
+        </div>
     </div>
 
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -56,13 +67,12 @@
       </button>
 
     </div>
-   </div>
-
     
 
-    
+      <?php echo $_SESSION['username']; ?>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+
         </script>
 
 
@@ -70,11 +80,9 @@
       <div class="row justify-content-start ">
          <div class="col-1 mt-3 text-center ">
             <!-- <img src="shopingLogo.jpg" class="img-fluid" alt="shoping logo"> -->
-            <a href="https://turboswim.com/en/">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                </svg>
-            </a>
          </div>
          <div class="col-1 mt-3 text-center">
             <a href="https://www.instagram.com/accounts/login/?next=/waterpolo_tivon/">
@@ -104,3 +112,4 @@
    </body>
 
 </html>
+
