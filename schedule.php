@@ -106,8 +106,9 @@ session_start();
                 <input type="hidden" name="userName" value="<?php echo $_SESSION['username']?>">
                 <button type="submit" name="History" value ="Schedule" class="btn btn-success mt-3" onclick="saveEdits();">save my edits</button>
             </form>
-        </div>
             <input class="btn btn-success me-md-2 my-3" type="button" onclick="print()" value="Print this page" />
+        </div>
+            
       <?php } ?>
 
       <div class="watermark my-3 ">מועדון כדורמים קרית טבעון   <img src="images/TivonLogo.PNG" height="50" width="100" >
