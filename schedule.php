@@ -100,11 +100,13 @@ session_start();
        <!-- <input type="button" class="btn btn-success" value="save my edits" onclick="saveEdits();"/> -->
          <?php date_default_timezone_set('Asia/Jerusalem');
          $date = date('d-m-y');?>
-       <form name="form" method="post" action="schedule.php">&nbsp;
-            <input type="hidden" name="Hdate" value="<?php echo $date?>">
-            <input type="hidden" name="userName" value="<?php echo $_SESSION['username']?>">
-            <button type="submit" name="History" value ="Schedule" class="btn btn-success mt-3" onclick="saveEdits();">save my edits</button>
-        </form>
+        <div class="text-center">
+            <form name="form" method="post" action="schedule.php">&nbsp;
+                <input type="hidden" name="Hdate" value="<?php echo $date?>">
+                <input type="hidden" name="userName" value="<?php echo $_SESSION['username']?>">
+                <button type="submit" name="History" value ="Schedule" class="btn btn-success mt-3" onclick="saveEdits();">save my edits</button>
+            </form>
+        </div>
             <input class="btn btn-success me-md-2 my-3" type="button" onclick="print()" value="Print this page" />
       <?php } ?>
 
