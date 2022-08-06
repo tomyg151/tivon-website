@@ -1,16 +1,23 @@
+
 <?php
 
-  session_start();
+session_start();
 
-  
-  include "db.php";
-  include "retrive.php";
-  include "function.php";
-  include "logic.php";
-  include "headerFooter.php";
+
+include "db.php";
+include "retrive.php";
+include "function.php";
+include "logic.php";
+include "headerFooter.php";
+
+
+$sql = "SELECT teams.name, coach.Name, coach.cId
+        FROM teams
+        INNER JOIN coach ON teams.cId=coach.cId";
+$query = mysqli_query($conn, $sql);
+
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -24,49 +31,90 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-      <link rel="stylesheet" href="style.css">
+      <script src="jquery-3.6.0.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      
+      <style type="text/css">
+         .watermark { display: none; }
+
+         @media print {
+         header, footer, nav, button, #joind, input {display: none !important;}
+            /*adding text at the end of the printed page*/
+            body:after{
+                content:"All rights reserved to Tom&Dennis © contact: 052-690-9944";
+            }
+            .watermark {
+            display: block;
+            }	
+
+         }
+               
+      </style>
+
+
+
    </head>
 
    <body style="background-image: url('images/background.png') ;">
-   <div class = "container-xlg py-3"> 
-    <div id="carouselExampleIndicators" class="carousel slide ms-5 me-5 pe-5 ps-5" data-bs-ride="carousel">
-      <div class="carousel-inner" >
-        <div class="carousel-item active text-center" data-bs-interval="5000">
-          <img src="images/bs.jpeg" height="500" width="1000" alt="...">
-        </div>
-        <?php
-          $path = 'gallery';
-          $files = scandir($path);
-          $files = array_diff(scandir($path), array('.', '..'));
-          foreach($files as $file){?>
-            <div class="carousel-item text-center" data-bs-interval="5000">
-              <img id ="imgSlide" src="gallery/<?php echo $file?>" alt="..." height="500" width="1000">
+   
+   
+        
+      <div class = "container-xlg py-3">
+      <?php
+      date_default_timezone_set('Asia/Jerusalem');
+      $date = date('d-m-y h:i:s');
+      ?>
+         <div class="row my-5 align-items-center justify-content-center">
+            <div class="col-5">
+            <div class="watermark my-3 ">מועדון כדורמים קרית טבעון   <img src="images/TivonLogo.PNG" height="50" width="100" >
             </div>
-         <?php } ?> 
-    </div>
+               <!-- Bulding card for each proffesinal player in the db -->
+               <div class="card">
+                  <div class="card-header text-center" dir ="rtl">
+                     דו"ח מאמנים 
+                  </div>
+                  <div class="card-body" id="GalleryReport">
+                  <h5 class="card-title text-center fw-bolder fs-3" dir ="rtl">מאמן איזה קבוצה</h5>
+                  <p class="card-text fs-6 fw-bold text-center" dir="rtl"><?php echo $date; ?> זמן יצירת הדו"ח</p>
+                  <div class="row my-5 justify-content-center">
+                     <div class="col mx-5">
+                     <table class="table table-striped">
+                        <thead>
+                           <tr>
+                              <th scope="col">Coach ID</th>
+                              <th scope="col">Coach name</th>
+                              <th scope="col">Team name</th>
+                           </tr>
+                        </thead>
+                           <tbody>
+                                <?php
+                                    while($rows = $query -> fetch_assoc()){
+                                        ?>
+                                        <tr>
+                                        <td><?php echo $rows['cId']?></td>
+                                        <td><?php echo $rows['Name']?></td>
+                                        <td><?php echo $rows['name']?></td>
+                                        </tr>
+                                    <?php } ?>
+                           </tbody>
+                        </table>
+                        </div>
+                    </div>
+                  </div>
+               </div>
+               <button type="button" class="btn btn-primary my-3" onclick="window.print()">הדפס</button>
+            </div>
+         </div>
 
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
+      </div>
 
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-
-    </div>
-   </div>
-
-    
-
-    
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-        </script>
+      
+   
 
 
-<footer  style="background-color:rgba(255,0,0,0.5)">
+      <footer style="background-color:rgba(255,0,0,0.5)">
       <div class="row justify-content-start ">
          <div class="col-1 mt-3 text-center ">
             <!-- <img src="shopingLogo.jpg" class="img-fluid" alt="shoping logo"> -->
@@ -92,7 +140,7 @@
                </svg>
             </a>
          </div>
-         <div class= "col mt-3 me-3 text-center">
+         <div id="credit" class= "col mt-3 me-3 text-center">
             <h6 class="text-end fw-bolder text-uppercase">All rights reserved to Tom&Dennis ©<br>contact: 052-690-9944</h6>
             <!-- <h4 class="text-end fw-bolder text-uppercase pe-3 pb-5"> contact: 052-690-9944</h4> -->
          </div>

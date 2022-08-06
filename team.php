@@ -1,16 +1,24 @@
+
 <?php
 
-  session_start();
+session_start();
 
-  
-  include "db.php";
-  include "retrive.php";
-  include "function.php";
-  include "logic.php";
-  include "headerFooter.php";
+
+include "db.php";
+include "retrive.php";
+include "function.php";
+include "logic.php";
+include "headerFooter.php";
+
+$sql = "SELECT * FROM `teams`";
+$query = mysqli_query($conn, $sql);
+
+$sqlK = "SELECT * FROM `kids`";
+$queryKids = mysqli_query($conn, $sqlK);
+
+
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -24,49 +32,35 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-      <link rel="stylesheet" href="style.css">
+      <script src="jquery-3.6.0.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
    </head>
 
    <body style="background-image: url('images/background.png') ;">
-   <div class = "container-xlg py-3"> 
-    <div id="carouselExampleIndicators" class="carousel slide ms-5 me-5 pe-5 ps-5" data-bs-ride="carousel">
-      <div class="carousel-inner" >
-        <div class="carousel-item active text-center" data-bs-interval="5000">
-          <img src="images/bs.jpeg" height="500" width="1000" alt="...">
-        </div>
-        <?php
-          $path = 'gallery';
-          $files = scandir($path);
-          $files = array_diff(scandir($path), array('.', '..'));
-          foreach($files as $file){?>
-            <div class="carousel-item text-center" data-bs-interval="5000">
-              <img id ="imgSlide" src="gallery/<?php echo $file?>" alt="..." height="500" width="1000">
-            </div>
-         <?php } ?> 
-    </div>
-
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-
-    </div>
-   </div>
-
-    
-
-    
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-        </script>
+   <!-- creating card for each team in db -->
+   <div class = "container-xlg py-3 text-center"> 
+         <div class="row">
+         <?php while($rows = $query -> fetch_assoc()){?>
+               <div class="col-3">
+                  <div class="card my-3 border-primary border-2" style="background-color:rgba(255,7,7,0.5);">
+                     <div class="card-body text-center py-4">
+                        <h4 class="card-title"style="color:rgb(255,255,255)"><?php echo $rows['name'];?></h4>
+                        <p class="lead card-subtitle"style="color:rgb(255,255,255)"><?php echo $rows['tId'];?></p>
+                        <?php if ($rows['imgSrc'] != null){ ?>
+                        <img src="<?php echo $rows['imgSrc'];?>" class="card-img-bottom" alt="s1" width="50" height="150"> <?php }?>
+                        <?php if (!empty($_SESSION['username'])){?>
+                        <form method="POST">
+                        <?php } ?>
+                     </div>
+                  </div>
+               </div>
+         <?php } ?>
+         </div>
+      </div>
 
 
-<footer  style="background-color:rgba(255,0,0,0.5)">
+      <footer  style="background-color:rgba(255,0,0,0.5)">
       <div class="row justify-content-start ">
          <div class="col-1 mt-3 text-center ">
             <!-- <img src="shopingLogo.jpg" class="img-fluid" alt="shoping logo"> -->

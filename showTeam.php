@@ -1,16 +1,24 @@
+
 <?php
 
-  session_start();
+session_start();
 
-  
-  include "db.php";
-  include "retrive.php";
-  include "function.php";
-  include "logic.php";
-  include "headerFooter.php";
+
+include "db.php";
+include "retrive.php";
+include "function.php";
+include "logic.php";
+include "headerFooter.php";
+
+$sql = "SELECT * FROM `teams`";
+$query = mysqli_query($conn, $sql);
+
+$sqlK = "SELECT * FROM `kids`";
+$queryKids = mysqli_query($conn, $sqlK);
+
+
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -24,49 +32,54 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-      <link rel="stylesheet" href="style.css">
+      <script src="jquery-3.6.0.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
    </head>
 
    <body style="background-image: url('images/background.png') ;">
-   <div class = "container-xlg py-3"> 
-    <div id="carouselExampleIndicators" class="carousel slide ms-5 me-5 pe-5 ps-5" data-bs-ride="carousel">
-      <div class="carousel-inner" >
-        <div class="carousel-item active text-center" data-bs-interval="5000">
-          <img src="images/bs.jpeg" height="500" width="1000" alt="...">
-        </div>
-        <?php
-          $path = 'gallery';
-          $files = scandir($path);
-          $files = array_diff(scandir($path), array('.', '..'));
-          foreach($files as $file){?>
-            <div class="carousel-item text-center" data-bs-interval="5000">
-              <img id ="imgSlide" src="gallery/<?php echo $file?>" alt="..." height="500" width="1000">
-            </div>
-         <?php } ?> 
-    </div>
+   <!-- showing in table all the U18 players in team that selected. -->
+   <div class = "container-xlg py-3 text-center" style="background-color:rgba(255,0,0,0.5);"> 
+         <div class="row justify-content-md-center">
+         <?php while($rows = $query -> fetch_assoc()){?>
+            <?php if($rows["tId"] == $_POST['teamId']){?>
+                <div class="col">
+                    <img src="<?php echo $rows['imgSrc'];?>" height="400" width="600" >
+                </div>
+            <?php }?>
+         <?php } ?>
+         </div>
+         <a id="namesTable">
+            <div>
+               <h1 class="display-6 text-center fw-bolder my-5" style="color:rgb(25, 33, 133);">שחקני הקבוצה</h1>
+               <table class="table table-dark table-hover">
+                  <thead>
+                  <tr>
+                     <th scope="col">ID</th>
+                     <th scope="col">Full Name</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <?php
+                  if(isset($_POST['teamId'])){
+                     while($rowsK = $queryKids -> fetch_assoc()){
+                        if($rowsK['tId'] == $_POST['teamId']){
+                        ?>
+                        <tr>
+                        <td><?php echo $rowsK['kId']?></td>
+                        <td><?php echo $rowsK['name']?></td>
+                        </tr>
+                        <?php } ?>
+                     <?php } ?>
+                  <?php } ?>
+                  </tbody>
+               </table>
+            <div>
+         </a>
+      </div>
 
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
 
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-
-    </div>
-   </div>
-
-    
-
-    
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-        </script>
-
-
-<footer  style="background-color:rgba(255,0,0,0.5)">
+      <footer  style="background-color:rgba(255,0,0,0.5)">
       <div class="row justify-content-start ">
          <div class="col-1 mt-3 text-center ">
             <!-- <img src="shopingLogo.jpg" class="img-fluid" alt="shoping logo"> -->
