@@ -78,8 +78,8 @@ session_start();
 
 
    </head>
-
-   <body onload="checkEditsTable()" style="background-image: url('images/background.png') ;">
+   <!-- onload="checkEditsTable()" -->
+   <body  style="background-image: url('images/background.png') ;">
    
 
    <?php if (!empty($_SESSION['username'])){?>
