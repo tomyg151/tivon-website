@@ -357,7 +357,7 @@ session_start();
                                     <div class="margin-10px-top font-size14">12:00-15:00</div>
                                 </td>
                                 <td >
-                                    <span class="bg-secondary padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">שחיה</span>
+                                    <span class="padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">שחיה</span>
                                     <div class="margin-10px-top font-size14">12:00-15:00</div>
                                 </td>
                                 <td>
