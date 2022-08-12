@@ -219,7 +219,7 @@ session_start();
 
                             <tr>
                                 <td class="align-middle">09:00pm</td>
-                                <td class="bg-light-gray">
+                                <td >
 
                                 </td>
                                 <td>
@@ -234,7 +234,7 @@ session_start();
                                     <span class="padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">בוגרים</span>
                                     <div class="margin-10px-top font-size14">08:00-10:00</div>
                                 </td>
-                                <td class="bg-light-gray">
+                                <td >
 
                                 </td>
                                 <td>
@@ -271,7 +271,7 @@ session_start();
                                 </td>
                                 <td>
                                 </td>
-                                <td class="bg-light-gray">
+                                <td >
 
                                 </td>
                                 <td>
@@ -296,7 +296,7 @@ session_start();
                                     <span class="padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">שחיה</span>
                                     <div class="margin-10px-top font-size14">12:00-15:00</div>
                                 </td>
-                                <td class="bg-light-gray">
+                                <td >
                                     <span class="padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">שחיה</span>
                                     <div class="margin-10px-top font-size14">12:00-15:00</div>
                                 </td>
@@ -326,7 +326,7 @@ session_start();
                                     <span class="padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">שחיה</span>
                                     <div class="margin-10px-top font-size14">12:00-15:00</div>
                                 </td>
-                                <td class="bg-light-gray">
+                                <td >
                                     <span class="padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">שחיה</span>
                                     <div class="margin-10px-top font-size14">12:00-15:00</div>
                                 </td>
@@ -356,7 +356,7 @@ session_start();
                                     <span class="padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">שחיה</span>
                                     <div class="margin-10px-top font-size14">12:00-15:00</div>
                                 </td>
-                                <td class="bg-light-gray">
+                                <td >
                                     <span class="bg-secondary padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">שחיה</span>
                                     <div class="margin-10px-top font-size14">12:00-15:00</div>
                                 </td>
@@ -386,7 +386,7 @@ session_start();
                                     <span class="padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">בית ספר לכדור מים</span>
                                     <div class="margin-10px-top font-size14">15:00-16:00</div>
                                 </td>
-                                <td class="bg-light-gray">
+                                <td>
                                     <span class="padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">גיל 14</span>
                                     <div class="margin-10px-top font-size14">15:00-17:00</div>
                                 </td>
@@ -474,7 +474,7 @@ session_start();
                                     <span class="padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">גיל 16</span>
                                     <div class="margin-10px-top font-size14">18:00-20:00</div>
                                 </td>
-                                <td class="bg-light-gray">
+                                <td>
                                     <span class="padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">גיל 16</span>
                                     <div class="margin-10px-top font-size14">17:00-19:00</div>
                                 </td>
@@ -502,7 +502,7 @@ session_start();
                                     <span class="padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">גיל 16</span>
                                     <div class="margin-10px-top font-size14">18:00-20:00</div>
                                 </td>
-                                <td class="bg-light-gray">
+                                <td >
                                     <span class="padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">בוגרות</span>
                                     <div class="margin-10px-top font-size14">19:00-21:00</div>
                                 </td>
@@ -530,7 +530,7 @@ session_start();
                                     <span class="padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">בוגרות</span>
                                     <div class="margin-10px-top font-size14">20:00-21:30</div>
                                 </td>
-                                <td class="bg-light-gray">
+                                <td >
                                     <span class="padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">בוגרות</span>
                                     <div class="margin-10px-top font-size14">19:00-21:00</div>
                                 </td>
@@ -558,7 +558,7 @@ session_start();
                                     <span class="padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">בוגרות</span>
                                     <div class="margin-10px-top font-size14">20:00-21:30</div>
                                 </td>
-                                <td class="bg-light-gray">
+                                <td>
                                     <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">בוגרים</span>
                                     <div class="margin-10px-top font-size14">21:00-22:30</div>
                                 </td>
@@ -585,10 +585,10 @@ session_start();
                                     <div class="margin-10px-top font-size14">22:30-11:45</div>
                                 </td>
                                 <td>
-                                    <span class="bg-lightred padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">בוגרים</span>
+                                    <span class="padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">בוגרים</span>
                                     <div class="margin-10px-top font-size14">21:30-23:00</div>
                                 </td>
-                                <td class="bg-light-gray">
+                                <td >
                                     <span class=" padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">בוגרים</span>
                                     <div class="margin-10px-top font-size14">21:00-22:30</div>
                                     <span class="padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">מאסטרס</span>
@@ -616,7 +616,7 @@ session_start();
                                 </td>
                                 <td>
                                 </td>
-                                <td class="bg-light-gray">
+                                <td>
                                     <span class="padding-5px-tb padding-15px-lr border-radius-5 margin-10px-bottom text-white font-size16  xs-font-size13" dir="rtl">מאסטרס</span>
                                     <div class="margin-10px-top font-size14">22:30-11:45</div>
                                 </td>
@@ -638,7 +638,7 @@ session_start();
                                 </td>
                                 <td>
                                 </td>
-                                <td class="bg-light-gray">
+                                <td>
                                 </td>
                                 <td>
                                 </td>
