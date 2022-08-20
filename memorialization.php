@@ -42,7 +42,7 @@
                   <div class="card my-3 border-dark border-2" style="background-color:rgb(182,25,25);">
                      <div class="card-body py-4">
                         <h4 class="card-title text-center fw-bolder" dir="rtl">דני הרן</h4>
-                        <img src="images_memoralization/dani_haren.jpeg" height="525" class="card-img-top" alt="s1">
+                        <img src="images_memoralization/rsz_dani_haren.jpg"  class="card-img-top" alt="s1">
                         <p class="lead card-subtitle fw-bolder fs-6" dir="rtl">  
                         <br>
                            דני הרן<br>
