@@ -22,17 +22,17 @@
       header("Refresh:0");
       exit();
   }
-  //logic to delelet player from db with the player id.
+  //logic to delete player from db with the player id.
   if(isset($_POST['deletePlayer'])){
     deletePlayer($conn,$_POST['HatNum']);
     unset($_POST);
 }
-  //logic to delelet team from db with the team id.
+  //logic to delete team from db with the team id.
   if(isset($_POST['deleteTeam'])){
     deleteTeam($conn,$_POST['tId']);
     unset($_POST);
   }
-   //logic to delelet kid from db with the kid id.
+   //logic to delete kid from db with the kid id.
    if(isset($_POST['deleteKid'])){
     deleteKid($conn,$_POST['kId']);
     unset($_POST);

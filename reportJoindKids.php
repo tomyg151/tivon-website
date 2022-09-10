@@ -71,6 +71,7 @@ include "headerFooter.php";
                   </div>
                   <div class="card-body" id="GalleryReport">
                   <form name="form" method="post" action="reportJoindKids.php">&nbsp;
+                     <p dir="rtl"> יש להזין את השנה על מנת לראות את כל מי שנרשם בשנה זו:</p>
                     <input type="text" name="Jyear" placeholder=" year-example: 17,18,19,20.." class="form-control">&nbsp;
                     <button type="submit" name="Joind" value ="Joind" class="btn btn-outline-success my-3">Create Report</button>
                   </form>
@@ -80,7 +81,7 @@ include "headerFooter.php";
                     $queryKids = mysqli_query($conn, $sqlK);
                     ?>
                   <h5 class="card-title text-center fw-bolder fs-3" dir ="rtl">נרשמו בשנה הנבחרה:</h5>
-                  <p class="card-text fs-6 fw-bold text-center" dir="rtl"><?php echo $date; ?> זמן יצירת הדו"ח</p>
+                  <p class="card-text fs-6 fw-bold text-center" dir="rtl">זמן יצירת הדו"ח <?php echo $date; ?></p>
                      <table class="table table-striped">
                         <thead>
                            <tr>

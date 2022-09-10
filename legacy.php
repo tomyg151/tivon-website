@@ -103,12 +103,13 @@
          <div contentEditable=<?php echo $_POST['edit']?> class="fw-bolder text-light" id="importent_player" dir="rtl">
            אוהד בן דרור<br>
             רוני קרן<br>
-          סמ יקרן<br>
+          סמי קרן<br>
             דני זהבי<br>
             אפי זהבי<br>
           מושיקו הרשקוביץ<br>
            גד סטרוגו<br>
             פלגי רוזנפלד<br>
+            עידו קרן<br>
       </div>
       <br>
       </div>

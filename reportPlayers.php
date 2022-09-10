@@ -77,7 +77,7 @@ $queryP = mysqli_query($conn, $sqlP);
                   </div>
                   <div class="card-body" id="GalleryReport">
                   <h5 class="card-title text-center fw-bolder fs-3" dir ="rtl">כל השחקנים:</h5>
-                  <p class="card-text fs-6 fw-bold text-center" dir="rtl"><?php echo $date; ?> זמן יצירת הדו"ח</p>
+                  <p class="card-text fs-6 fw-bold text-center" dir="rtl">זמן יצירת הדו"ח <?php echo $date; ?></p>
                   <div class="row my-5 justify-content-center">
                      <div class="col-3 mx-5">
                      <table class="table table-striped">
